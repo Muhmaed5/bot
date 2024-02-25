@@ -1,0 +1,85 @@
+[12-Nov-2022 21:20:02 Asia/Kolkata] PHP Warning:  mysqli_query(): Empty query in /home/alvcarr230/www/project/admin_cmds/credits.php on line 10
+[12-Nov-2022 21:20:02 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/alvcarr230/www/project/admin_cmds/credits.php on line 11
+[12-Nov-2022 23:41:17 Asia/Kolkata] PHP Warning:  mysqli_query(): Empty query in /home/alvcarr230/www/project/admin_cmds/credits.php on line 10
+[12-Nov-2022 23:41:17 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/alvcarr230/www/project/admin_cmds/credits.php on line 11
+[12-Nov-2022 23:41:36 Asia/Kolkata] PHP Warning:  mysqli_query(): Empty query in /home/alvcarr230/www/project/admin_cmds/credits.php on line 10
+[12-Nov-2022 23:41:36 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/alvcarr230/www/project/admin_cmds/credits.php on line 11
+[12-Nov-2022 23:41:59 Asia/Kolkata] PHP Warning:  mysqli_query(): Empty query in /home/alvcarr230/www/project/admin_cmds/credits.php on line 10
+[12-Nov-2022 23:41:59 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/alvcarr230/www/project/admin_cmds/credits.php on line 11
+[12-Nov-2022 23:42:53 Asia/Kolkata] PHP Warning:  mysqli_query(): Empty query in /home/alvcarr230/www/project/admin_cmds/credits.php on line 10
+[12-Nov-2022 23:42:53 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/alvcarr230/www/project/admin_cmds/credits.php on line 11
+[12-Nov-2022 23:43:19 Asia/Kolkata] PHP Warning:  mysqli_query(): Empty query in /home/alvcarr230/www/project/admin_cmds/credits.php on line 10
+[12-Nov-2022 23:43:19 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/alvcarr230/www/project/admin_cmds/credits.php on line 11
+[13-Nov-2022 03:17:34 Asia/Kolkata] PHP Warning:  mysqli_query(): Empty query in /home/alvcarr230/www/project/Gates/ch.php on line 13
+[13-Nov-2022 03:17:34 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/alvcarr230/www/project/Gates/ch.php on line 14
+[14-Nov-2022 14:47:05 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/alvcarr230/www/project/Tools/bin.php on line 60
+[14-Nov-2022 14:47:06 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/alvcarr230/www/project/Tools/bin.php on line 60
+[14-Nov-2022 14:47:37 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/alvcarr230/www/project/Tools/bin.php on line 60
+[14-Nov-2022 14:47:40 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/alvcarr230/www/project/Tools/bin.php on line 60
+[14-Nov-2022 14:47:56 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/alvcarr230/www/project/Tools/bin.php on line 60
+[14-Nov-2022 14:47:57 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/alvcarr230/www/project/Tools/bin.php on line 60
+[14-Nov-2022 14:51:19 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/alvcarr230/www/project/Tools/bin.php on line 21
+[14-Nov-2022 15:12:00 Asia/Kolkata] PHP Warning:  Use of undefined constant pais - assumed 'pais' (this will throw an Error in a future version of PHP) in /home/alvcarr230/www/project/Tools/bin.php on line 34
+[14-Nov-2022 15:12:37 Asia/Kolkata] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to SendMessage() must be of the type array, null given, called in /home/alvcarr230/www/project/Tools/bin.php on line 35 and defined in /home/alvcarr230/www/project/Resources/Functions.php:233
+Stack trace:
+#0 /home/alvcarr230/www/project/Tools/bin.php(35): SendMessage(NULL, 'None Input', NULL)
+#1 /home/alvcarr230/www/project/requires.php(9): require_once('/home/alvcarr23...')
+#2 /home/alvcarr230/www/project/bot.php(3): require_once('/home/alvcarr23...')
+#3 {main}
+  thrown in /home/alvcarr230/www/project/Resources/Functions.php on line 233
+[14-Nov-2022 15:12:52 Asia/Kolkata] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to SendMessage() must be of the type array, null given, called in /home/alvcarr230/www/project/Tools/bin.php on line 35 and defined in /home/alvcarr230/www/project/Resources/Functions.php:233
+Stack trace:
+#0 /home/alvcarr230/www/project/Tools/bin.php(35): SendMessage(NULL, 'None Input', NULL)
+#1 /home/alvcarr230/www/project/requires.php(9): require_once('/home/alvcarr23...')
+#2 /home/alvcarr230/www/project/bot.php(3): require_once('/home/alvcarr23...')
+#3 {main}
+  thrown in /home/alvcarr230/www/project/Resources/Functions.php on line 233
+[14-Nov-2022 20:30:03 Asia/Kolkata] PHP Warning:  mysqli_query(): Empty query in /home/alvcarr230/www/project/Gates/ch.php on line 13
+[14-Nov-2022 20:30:03 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/alvcarr230/www/project/Gates/ch.php on line 14
+[14-Nov-2022 22:27:14 Asia/Kolkata] PHP Warning:  mysqli_query(): Empty query in /home/alvcarr230/www/project/admin_cmds/credits.php on line 10
+[14-Nov-2022 22:27:14 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/alvcarr230/www/project/admin_cmds/credits.php on line 11
+[14-Nov-2022 22:34:20 Asia/Kolkata] PHP Warning:  mysqli_query(): Empty query in /home/alvcarr230/www/project/admin_cmds/credits.php on line 10
+[14-Nov-2022 22:34:20 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/alvcarr230/www/project/admin_cmds/credits.php on line 11
+[15-Nov-2022 04:04:04 Asia/Kolkata] PHP Warning:  mysqli_query(): Empty query in /home/alvcarr230/www/project/Gates/ch.php on line 13
+[15-Nov-2022 04:04:04 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/alvcarr230/www/project/Gates/ch.php on line 14
+[15-Nov-2022 06:21:53 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:21:56 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:21:56 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:21:56 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:21:56 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:21:56 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:21:56 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:21:56 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:21:56 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:21:56 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:22:01 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:22:03 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:22:08 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:22:11 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:22:12 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:22:12 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:22:13 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:22:13 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:22:25 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:22:29 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:22:30 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:22:34 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:22:36 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:22:42 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:22:43 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:22:44 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:22:44 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:22:46 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:22:50 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:22:50 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:22:56 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:22:57 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:23:01 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:23:01 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/alvcarr230/www/project/Tools/rndadr.php on line 9
+[15-Nov-2022 06:23:32 Asia/Kolkata] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to SendMessage() must be of the type array, null given, called in /home/alvcarr230/www/project/Tools/rndadr.php on line 8 and defined in /home/alvcarr230/www/project/Resources/Functions.php:233
+Stack trace:
+#0 /home/alvcarr230/www/project/Tools/rndadr.php(8): SendMessage(NULL, 'Input valid cou...', NULL)
+#1 /home/alvcarr230/www/project/requires.php(9): require_once('/home/alvcarr23...')
+#2 /home/alvcarr230/www/project/bot.php(3): require_once('/home/alvcarr23...')
+#3 {main}
+  thrown in /home/alvcarr230/www/project/Resources/Functions.php on line 233
